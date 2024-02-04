@@ -1,8 +1,8 @@
 import grid
 import time
 
-empty_cell = '▢ '
-full_cell = '▣ '
+empty_cell = '▢'
+full_cell = '▣'
 
 In_Console = True
 debug = False
