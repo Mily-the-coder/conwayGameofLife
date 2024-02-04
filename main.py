@@ -1,5 +1,6 @@
 import grid
 import time
+import copy
 
 empty_cell = '▢'
 full_cell = '▣'
@@ -20,9 +21,14 @@ def show_cells():
 # console for setting where the live and dead cells are and the interval between generations
 print("\nType 'help' for help.")
 timer = None
+last = list
+get_last = False
 while In_Console:
     console = input("> ").lower()
     cmd = console.split()
+    if get_last:
+        cmd = last
+        get_last = False
 
     if cmd[0] == 'set':
 
@@ -38,6 +44,7 @@ while In_Console:
             cellGrid.setCell((cmd[1], cmd[2]), value)
 
             show_cells()
+        last = copy.copy(cmd)
 
     elif cmd[0] == 'show':
         show_cells()
@@ -49,16 +56,22 @@ while In_Console:
             timer = float(cmd[1])
         In_Console = False
 
+    elif cmd[0] == 'last':
+        get_last = True
+
     elif cmd[0] == 'help':
         print("""-==|Commands|==-\n
     set  -Sets cell in grid to opposite of its value.\n
-         -Syntax:  set [Tile X] [Tile Y]  ->  set 16 8\n
+         -Syntax: > set [Tile X] [Tile Y]  ->  set 16 8\n
          \n
     show -Displays entire grid.\n
-         -Syntax:  show\n
+         -Syntax: > show\n
+         \n
+    last -Uses last command.\n
+         -Syntax: > last\n
          \n
     run  -Runs program with optional time between generations (in seconds).\n
-         -Syntax:  run [Time]  -> run 1.5   (if parameter time is empty default time is 0.5 seconds)\n
+         -Syntax: > run [Time]  -> run 1.5   (if parameter time is empty default time is 0.5 seconds)\n
          """)
 
 # main game loop
