@@ -24,9 +24,10 @@ timer = None
 last = list
 get_last = False
 while In_Console:
-    console = input("> ").lower()
-    cmd = console.split()
-    if get_last:
+    if not get_last:
+        console = input("> ").lower()
+        cmd = console.split()
+    else:
         cmd = last
         get_last = False
 
