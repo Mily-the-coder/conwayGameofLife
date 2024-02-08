@@ -15,11 +15,12 @@ cellGrid = grid.Grid(width, height, 0)
 
 
 def show_cells():
-    cellGrid.display_cells({0: empty_cell, 1: full_cell})
+    cellGrid.display_cells({0: empty_cell, 1: full_cell}, True, True)
 
 
 # console for setting where the live and dead cells are and the interval between generations
 print("\nType 'help' for help.")
+show_cells()
 timer = None
 last = list
 get_last = False
@@ -74,6 +75,7 @@ while In_Console:
         run  -Runs program with optional time between generations (in seconds).\n
              -Syntax: > run [Time]  -> run 1.5   (if parameter time is empty default time is 0.5 seconds)\n
              """)
+
 
 # main game loop
 while not In_Console:
