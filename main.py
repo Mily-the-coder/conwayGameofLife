@@ -15,7 +15,7 @@ cellGrid = grid.Grid(width, height, 0)
 
 
 def show_cells():
-    cellGrid.display_cells({0: empty_cell, 1: full_cell}, True, True)
+    cellGrid.displayCells({0: empty_cell, 1: full_cell}, False, False)
 
 
 # console for setting where the live and dead cells are and the interval between generations
@@ -84,7 +84,7 @@ while not In_Console:
 
     # main logic (rules)
     for cell in cellGrid.grid.keys():
-        neighbor = cellGrid.get_neighbors(cell, False)
+        neighbor = cellGrid.getNeighbors(cell, False)
         live_neighbor_count = 0
         for j in neighbor.values():
             if j == 1:
