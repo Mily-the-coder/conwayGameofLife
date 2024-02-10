@@ -84,7 +84,7 @@ while not In_Console:
 
     # main logic (rules)
     for cell in cellGrid.grid.keys():
-        neighbor = cellGrid.getNeighbors(cell, False)
+        neighbor = cellGrid.get_neighbors(cell, False)
         live_neighbor_count = 0
         for j in neighbor.values():
             if j == 1:
